@@ -32,11 +32,17 @@ export default class Timer extends Component {
         this.setState({ stopTimer: false })
     }
 
+    onReset = () =>{
+        clearTimeout(this.timeout)
+        this.setState({ timer: this.props.timer})
+    }
+
     render() {
         return (<div>
             {this.state.timer}
             <button onClick={this.onStop}>STOP</button>
             <button onClick={this.onStart}>START</button>
+            <button onClick={this.onReset}>RESET</button>
         </div>)
     }
 }
